@@ -1,10 +1,11 @@
 C ======================================================================
-C Program: Introduction to Computational Physics
-C Author: João Calisto
-C Course: Computational Physics
-C Description: This program demonstrates the basic concepts of
-C              Computational Physics using Fortran 77.
-C Date: [25/08/2024]
+C Matéria: Introduction to Computational Physics
+C Criador: João Calisto
+C Curso: Computational Physics
+C Data: [25/08/2024]
+C Descrição: Este programa lê do terminal os raios interno (r1) e externo (r2)
+C              de um toro e calcula a área total e o volume do toro. 
+C              Os resultados são exibidos na tela do terminal.
 C ======================================================================
 
       PROGRAM CalculateTorusDim
