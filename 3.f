@@ -10,3 +10,57 @@ C M (onde M ≤ N) e ordena apenas os M menores números lidos do arquivo.
 C O resultado da ordenação, juntamente com o número M, é salvo em um arquivo
 C de saída.
 C ======================================================================
+        program OrderedFile
+        integer i, i2, n,m, ios
+        real line
+        REAL*8, ALLOCATABLE :: numeros(:), menores(:), sorted_array(:)
+        REAL*8 tmp
+        
+        open(unit=1, file='tarefa-3-entrada-1.in')
+
+        i = 0
+        do
+            read (1, *, iostat=ios) line 
+            if (ios /= 0) exit
+            i = i + 1
+        end do
+
+        ALLOCATE(numeros(i))
+        ALLOCATE(sorted_array(i))
+        REWIND(10)
+
+        n = i        
+        do i2 = 1, i
+            read (1, iostat=ios) numeros(i2) 
+        end do
+
+        close (1)
+        print *, "N é ", n
+        
+        print *, "Insira M (N>=M):"
+        read *, m
+        if (m > n) then
+            print *, "M deve ser menor ou igual a N"
+            stop
+        end if
+
+        ALLOCATE(menores(m))
+
+        do i = 1, n - 1
+            if (numeros(i) > numeros(i+1)) then
+                tmp = numeros(i)
+                numeros(i) = numeros(i+1)
+                numeros(i+1) = tmp
+            end if
+        end do
+
+        open(unit=2, file='tarefa-3-entrada-1.out')
+
+        do i = 1, m
+            write (2, *) numeros(i)
+        end do
+        close(2)
+        
+        end 
+    
+

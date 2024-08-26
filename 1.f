@@ -14,9 +14,10 @@ C ======================================================================
       read *, ri
       print *, "Insira o raio externo do torus"
       read *, re
+      real pi 3.141592653589793
 
-      a = 4*3.14**2*ri*re
-      v= 2*3.14**2*ri**2*re
+      a = 4*pi**2*ri*re
+      v= 2*pi**2*ri**2*re
       
       print *, "Area:", a
       print *, "Volume:", v
